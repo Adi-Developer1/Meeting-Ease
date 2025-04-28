@@ -22,6 +22,8 @@ A full-stack meeting scheduler application with conflict detection, real-time up
 - *Role-based Access*: Supports different roles (User vs Admin).
 ![Admin Page](./assets/Admin_Signup.png)
 ![Admin Page](./assets/Admin_Signin.png)
+- *Different Dashboard for Admins*: Supports special access to Admin
+![Admin Page](./assets/AdminDashboard.png)
 
 ## 2. Meeting Creation
 - *Create Meetings*: Users can create meetings with:
