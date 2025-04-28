@@ -14,11 +14,12 @@ A full-stack meeting scheduler application with conflict detection, real-time up
 
 # Key Features
 
-![Login Page](./assets/Login.jpg)
+
 ## 1. User Authentication
 - *Register/Login*: Allows users to sign up and log in to the app.
 - *JWT-based Authentication*: Ensures secure login sessions using JWT tokens.
 - *Role-based Access*: Supports different roles (User vs Admin).
+![Login Page](./assets/Login.jpg)
 
 ![Meeting Page](./assets/MeetingScheduling.png)
 ## 2. Meeting Creation
@@ -28,21 +29,25 @@ A full-stack meeting scheduler application with conflict detection, real-time up
   - Start and End Time
   - Participants (via email or user ID)
 - *Conflict Detection*: The backend checks for scheduling conflicts before saving a new meeting.
+![Meeting Page](./assets/MeetingScheduling.png)
 
-![Calendar View](./assets/CalendarView.png)
+
 ## 3. Calendar View (Frontend)
 - *Weekly/Daily Views*: Users can view their meetings in either a weekly or daily view.
 - *Conflict Highlighting*: Conflicting meetings are highlighted for easy identification.
 - *Filter by User/Team* : Users can filter meetings by individual or team.
+![Calendar View](./assets/CalendarView.png)
 
-![Slot Suggestions](./assets/SlotSuggestions.jpg)
+
 ## 4. Best Slot Suggestion
 - *Suggest Available Time Slots*: The app can suggest available time slots based on working hours and existing schedules for a group of users.
+![Slot Suggestions](./assets/SlotSuggestions.jpg)
 
-![Conflict Detector](./assets/ConflictDetection.png)
+
 ## 5. Conflict Detection
 - *Prevent Double-Booking*: The backend ensures that users cannot book overlapping meetings.
 - *Rescheduling Suggestions*: If a conflict is detected, the app suggests alternate available times.
+![Conflict Detector](./assets/ConflictDetection.png)
 
 # Getting Started
 Prerequisites
