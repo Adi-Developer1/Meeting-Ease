@@ -21,7 +21,7 @@ A full-stack meeting scheduler application with conflict detection, real-time up
 - *Role-based Access*: Supports different roles (User vs Admin).
 ![Login Page](./assets/Login.jpg)
 
-![Meeting Page](./assets/MeetingScheduling.png)
+
 ## 2. Meeting Creation
 - *Create Meetings*: Users can create meetings with:
   - Title
@@ -54,19 +54,21 @@ Prerequisites
 -Node.js (v14 or higher)
 -MongoDB (local or cloud instance)
 
-## Installation
+# Installation
 
+Follow these steps to set up the project locally:
 
 1. Clone the repository:
-  ``` bash
+   ```bash
    git clone https://github.com/nandiayan73/Meeting-Scheduler
 
 2. Navigate to the project directory:
-   ``` bash
-      cd Meeting-Ease
+    ```bash
+    cd Meeting-Scheduler
 
 3. Install all dependencies for both frontend and backend:
-
+    ```bash
+    npm run install-all
 
 4. Set up environment variables: Create a .env file in the root directory and configure the following variables:
     ```bash
@@ -77,13 +79,14 @@ Prerequisites
     MAIL=<MAILID_FOR_SENDING_MAIL>
     MAILPASSWORD=<APP_PASSWORD>
     ADMIN_SECRET=<Admin_SECRET_FOR_ADMIN_LOGIN>
-    
-# Put the .env file inside the server or backend folder for correct configuration and authentication
-
+*Put this .env file inside the Server folder for correct configuration*
 Enter this admin secret while registering the admin, if not entered in default it will take it as "Admin" 
 
+5. Install concurrently if it is not installed:
+    ```bash
+    npm install concurrently
 
-5. Start both the client (React) and the server (Node.js + Express) together:
+6. Start both the client (React) and the server (Node.js + Express) together:
     ```bash
     npm run dev
 
@@ -91,5 +94,5 @@ Enter this admin secret while registering the admin, if not entered in default i
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
 # License
-This project is licensed under the [MIT License]. See the (LICENSE) file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
  
