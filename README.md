@@ -61,6 +61,7 @@ A full-stack meeting scheduler application with conflict detection, real-time up
 ## 6. User Profile and Details
 - *Dedicated page for user details entered during registration*: Enabling easy viewing.
 - *Left bar for showing today's meetings and for scheduling new meetings*: Enabling platform flexibility.
+![user profile](./assets/Userprofile.png)
 # Getting Started
 Prerequisites
 -Node.js (v14 or higher)
