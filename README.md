@@ -1,7 +1,7 @@
 # Meeting Scheduler with Conflict Detection
 A full-stack meeting scheduler application with conflict detection, user-friendly interface , and advanced features such as best slot suggestions and user authentication.
 
-![Calendar View](./assets/CalendarView.png)
+![Home View](./assets/CalendarView.png)
 
 A full-stack meeting scheduler application with conflict detection, real-time updates, and advanced features such as best slot suggestions and user authentication.
 
@@ -58,6 +58,9 @@ A full-stack meeting scheduler application with conflict detection, real-time up
 - *Rescheduling Suggestions*: If a conflict is detected, the app suggests alternate available times.
 ![Conflict Detector](./assets/ConflictDetection.png)
 
+## 6. User Profile and Details
+- *Dedicated page for user details entered during registration*: Enabling easy viewing.
+- *Left bar for showing today's meetings and for scheduling new meetings*: Enabling platform flexibility.
 # Getting Started
 Prerequisites
 -Node.js (v14 or higher)
