@@ -145,141 +145,182 @@ export default function CreateMeeting() {
       setLoading(false);
     }
   };
-
   return (
     <div className="bg-gradient-to-b from-purple-100 to-purple-200 min-h-screen">
       <Navbar />
       <ToastContainer />
-      <div className="flex items-center justify-center py-12 px-6">
+      <div className="flex flex-col lg:flex-row max-w-6xl mx-auto mt-10 shadow-2xl rounded-3xl overflow-hidden bg-white">
+        
+        {/* Sidebar */}
+        <div className="bg-purple-700 text-white w-full lg:w-1/3 p-8 flex flex-col justify-between">
+          <div>
+            <h2 className="text-3xl font-bold mb-4">Schedule Your Meeting</h2>
+            <p className="text-purple-200">
+              Easily schedule meetings, manage participants, and get intelligent suggestions when conflicts occur.
+            </p>
+          </div>
+          {currentUserEmail && (
+            <div className="mt-8 text-sm text-purple-100">
+              Logged in as:
+              <br />
+              <span className="font-semibold">{currentUserEmail}</span>
+            </div>
+          )}
+        </div>
+  
+        {/* Main Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white shadow-2xl rounded-2xl p-10 w-full max-w-2xl space-y-8 border-t-4 border-purple-700"
+          className="w-full lg:w-2/3 p-10 space-y-8"
         >
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-purple-900 mb-2">Schedule Meeting</h1>
-            <p className="text-gray-500">Organize your next gathering with ease!</p>
-            {currentUserEmail && (
-              <p className="text-sm text-gray-400 mt-2">
-                Logged in as: <span className="font-semibold">{currentUserEmail}</span>
-              </p>
-            )}
+          {/* Title & Description */}
+          <div>
+            <label className="block font-semibold text-purple-900">Meeting Title</label>
+            <input
+              type="text"
+              name="title"
+              value={meetingData.title}
+              onChange={handleChange}
+              required
+              className="w-full border-b-2 border-gray-300 focus:border-purple-700 py-2 outline-none bg-transparent"
+            />
           </div>
-
-          <div className="space-y-6">
-            {/* Inputs */}
-            {[
-              { label: "Meeting Title", name: "title", type: "text" },
-              { label: "Meeting Description", name: "description", type: "textarea" },
-              { label: "Participants (comma separated emails)", name: "participants", type: "text" },
-              { label: "Meeting Date", name: "date", type: "date" },
-            ].map(({ label, name, type }) => (
-              <div key={name} className="relative">
-                {type === "textarea" ? (
-                  <textarea
-                    name={name}
-                    value={meetingData[name]}
-                    onChange={handleChange}
-                    required
-                    className="peer w-full border-b-2 border-gray-300 focus:border-purple-700 outline-none py-3 placeholder-transparent"
-                    placeholder={label}
-                  />
-                ) : (
-                  <input
-                    type={type}
-                    name={name}
-                    value={meetingData[name]}
-                    onChange={handleChange}
-                    required
-                    className="peer w-full border-b-2 border-gray-300 focus:border-purple-700 outline-none py-3 placeholder-transparent"
-                    placeholder={label}
-                  />
-                )}
-                <label className="absolute left-0 -top-3.5 text-purple-900 text-sm peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 transition-all">
-                  {label}
-                </label>
-              </div>
-            ))}
-
-            {/* Time Inputs */}
-            <div className="flex gap-4">
-              {["startTime", "endTime"].map((field) => (
-                <div key={field} className="relative w-full">
-                  <input
-                    type="time"
-                    name={field}
-                    value={meetingData[field]}
-                    onChange={handleChange}
-                    required
-                    className="peer w-full border-b-2 border-gray-300 focus:border-purple-700 outline-none py-3 placeholder-transparent"
-                  />
-                  <label className="absolute left-0 -top-3.5 text-purple-900 text-sm peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 transition-all">
-                    {field === "startTime" ? "Start Time" : "End Time"}
-                  </label>
-                </div>
-              ))}
+  
+          <div>
+            <label className="block font-semibold text-purple-900">Description</label>
+            <textarea
+              name="description"
+              value={meetingData.description}
+              onChange={handleChange}
+              required
+              className="w-full border-b-2 border-gray-300 focus:border-purple-700 py-2 outline-none bg-transparent resize-none"
+            />
+          </div>
+  
+          {/* Date & Time */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block font-semibold text-purple-900">Meeting Date</label>
+              <input
+                type="date"
+                name="date"
+                value={meetingData.date}
+                onChange={handleChange}
+                required
+                className="w-full border-b-2 border-gray-300 focus:border-purple-700 py-2 outline-none bg-transparent"
+              />
             </div>
-
-            {/* Buttons */}
+            <div>
+              <label className="block font-semibold text-purple-900">Start Time</label>
+              <input
+                type="time"
+                name="startTime"
+                value={meetingData.startTime}
+                onChange={handleChange}
+                required
+                className="w-full border-b-2 border-gray-300 focus:border-purple-700 py-2 outline-none bg-transparent"
+              />
+            </div>
+            <div>
+              <label className="block font-semibold text-purple-900">End Time</label>
+              <input
+                type="time"
+                name="endTime"
+                value={meetingData.endTime}
+                onChange={handleChange}
+                required
+                className="w-full border-b-2 border-gray-300 focus:border-purple-700 py-2 outline-none bg-transparent"
+              />
+            </div>
+          </div>
+  
+          {/* Participants */}
+          <div>
+            <label className="block font-semibold text-purple-900">
+              Participants (comma-separated emails)
+            </label>
+            <input
+              type="text"
+              name="participants"
+              value={meetingData.participants}
+              onChange={handleChange}
+              required
+              className="w-full border-b-2 border-gray-300 focus:border-purple-700 py-2 outline-none bg-transparent"
+            />
             <button
               type="button"
               onClick={handleFetchParticipants}
               disabled={loading}
-              className="w-full bg-purple-700 hover:bg-purple-800 text-gold-200 font-semibold py-3 rounded-lg transition"
+              className="mt-3 bg-purple-700 hover:bg-purple-800 text-yellow-200 font-medium px-4 py-2 rounded-lg transition"
             >
               {loading ? "Loading..." : "Fetch Participants"}
             </button>
-
-            {participantNames.length > 0 && (
-              <div className="mt-4 text-gray-700">
-                <h3 className="font-semibold mb-2">Selected Participants:</h3>
-                <ul className="list-disc ml-5">
-                  {participantNames.map((p, idx) => (
-                    <li key={idx}>
-                      {p.name} (Email: {p.email})
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Conflict & Alternate */}
-            {conflictDetected && (
-              <div className="text-red-500 font-bold text-center">
-                Conflict detected! Please check alternate dates.
-              </div>
-            )}
-            {alternateDates.length > 0 && (
-              <div className="space-y-4">
-                <h3 className="font-bold text-purple-900 text-lg">Suggested Alternate Slots</h3>
+          </div>
+  
+          {/* Display Fetched Participants */}
+          {participantNames.length > 0 && (
+            <div className="bg-gray-50 border border-purple-200 rounded-lg p-4">
+              <h3 className="font-semibold text-purple-800 mb-2">Participants Found:</h3>
+              <ul className="list-disc list-inside text-gray-700">
+                {participantNames.map((p, idx) => (
+                  <li key={idx}>{p.name} ({p.email})</li>
+                ))}
+              </ul>
+            </div>
+          )}
+  
+          {/* Conflict Notice + Suggest Button */}
+          {conflictDetected && (
+            <div className="bg-red-100 border-l-4 border-red-500 p-4 text-red-700 rounded-lg space-y-2">
+              <div><strong>Conflict detected!</strong> Your meeting overlaps with existing schedules.</div>
+              <button
+                type="button"
+                onClick={handleSeeAlternateDays}
+                className="bg-purple-600 hover:bg-purple-700 text-yellow-100 px-4 py-2 rounded-lg font-semibold"
+              >
+                See Suggested Slots
+              </button>
+            </div>
+          )}
+  
+          {/* Alternate Suggestions */}
+          {alternateDates.length > 0 && (
+            <div className="bg-gray-100 border-l-4 border-purple-400 p-4 rounded-lg space-y-2">
+              <h4 className="font-bold text-purple-900 mb-2">Suggested Alternate Time Slots</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {alternateDates.map((slot, idx) => {
-                  const startDate = new Date(slot.startTime);
-                  const endDate = new Date(slot.endTime);
+                  const start = new Date(slot.startTime);
+                  const end = new Date(slot.endTime);
                   return (
                     <div
                       key={idx}
-                      className="bg-gray-100 rounded-lg p-4 shadow hover:shadow-lg transition-all"
+                      className="p-3 bg-white rounded-lg shadow border border-purple-100"
                     >
-                      <div className="font-semibold">{startDate.toLocaleDateString()}</div>
-                      <div className="text-sm">
-                        {startDate.toLocaleTimeString()} - {endDate.toLocaleTimeString()}
+                      <div className="text-purple-900 font-semibold">
+                        {start.toLocaleDateString()}
+                      </div>
+                      <div className="text-sm text-gray-700">
+                        {start.toLocaleTimeString()} - {end.toLocaleTimeString()}
                       </div>
                     </div>
                   );
                 })}
               </div>
-            )}
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-purple-700 hover:bg-purple-800 text-yellow-300 font-semibold py-3 rounded-lg transition mt-4"
-            >
-              {loading ? "Creating Meeting..." : "Create Meeting"}
-            </button>
-          </div>
+            </div>
+          )}
+  
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-purple-700 hover:bg-purple-800 text-yellow-200 font-semibold py-3 rounded-lg transition"
+          >
+            {loading ? "Creating Meeting..." : "Create Meeting"}
+          </button>
         </form>
       </div>
     </div>
   );
+  
+  
 }

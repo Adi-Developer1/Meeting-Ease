@@ -9,6 +9,7 @@
     "dev:server": "npm start --prefix server"
   },
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "react-icons": "^5.5.0"
   }
 }

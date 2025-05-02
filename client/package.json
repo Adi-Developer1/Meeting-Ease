@@ -16,6 +16,7 @@
     "date-fns-tz": "^3.2.0",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.503.0",
+    "meeting-ease": "file:..",
     "react": "^19.0.0",
     "react-big-calendar": "^1.18.0",
     "react-dom": "^19.0.0",

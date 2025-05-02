@@ -38,7 +38,7 @@ A full-stack meeting scheduler application with conflict detection, real-time up
   - Start and End Time
   - Participants (via email or user ID)
 - *Conflict Detection*: The backend checks for scheduling conflicts before saving a new meeting.
-![Meeting Page](./assets/MeetingScheduling.png)
+![Meeting Page](./assets/createmeeting.jpg)
 
 
 ## 3. Calendar View (Frontend)
@@ -56,7 +56,7 @@ A full-stack meeting scheduler application with conflict detection, real-time up
 ## 5. Conflict Detection
 - *Prevent Double-Booking*: The backend ensures that users cannot book overlapping meetings.
 - *Rescheduling Suggestions*: If a conflict is detected, the app suggests alternate available times.
-![Conflict Detector](./assets/ConflictDetection.png)
+![Conflict Detector](./assets/SlotSuggestions.jpg)
 
 ## 6. User Profile and Details
 - *Dedicated page for user details entered during registration*: Enabling easy viewing.
